@@ -1,0 +1,64 @@
+.divTabela {
+  display: flex;
+  margin-left: 30em;
+  border: none;
+}
+
+/* .statusPendente {
+  
+}
+
+.statusConcluido {
+  
+} */
+
+.table {
+  /* border: #e2dfdf; */
+  margin-top: -50px;
+  position: fixed;
+  z-index: 1;
+  right: 50px;
+  width: auto;
+}
+
+.table th {
+  padding: 5px 30px;
+  border: 1px solid white;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f0eaea;
+  background-color: #f0eaea;
+}
+
+.btnEdit {
+  font-size: large;
+  color: black;
+  padding: 3px;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.btnEdit:hover {
+  transform: scale(1.05);
+  border: none;
+}
+
+.btnEdit:active {
+  transform: scale(0.95);
+  background-color: transparent;
+}
+
+.table tr {
+  padding: 15px;
+  margin-bottom: 2px;
+  border: solid 1px white;
+}
+
+.table td {
+  border: solid 1px white;
+}

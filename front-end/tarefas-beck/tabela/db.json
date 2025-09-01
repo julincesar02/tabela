@@ -1,0 +1,67 @@
+{
+  "categorias": [
+    {
+      "id": "1",
+      "name": "Trabalho"
+    },
+    {
+      "id": "2",
+      "name": "Estudos"
+    },
+    {
+      "id": "3",
+      "name": "Casa"
+    }
+  ],
+  "todos": [
+    {
+      "id": "2f55",
+      "tarefa": "vhjnvc",
+      "data": "2025-08-08",
+      "categoria": "Estudos",
+      "status": "Pendente"
+    },
+    {
+      "id": "3de7",
+      "tarefa": "oie",
+      "data": "2025-08-08",
+      "categoria": "Trabalho",
+      "status": "concluido"
+    },
+    {
+      "id": "d46f",
+      "tarefa": "BBB",
+      "data": "2025-08-26",
+      "categoria": "Estudos",
+      "status": "Pendente"
+    },
+    {
+      "id": "f0da",
+      "tarefa": "cozinhar",
+      "data": "2025-08-08",
+      "categoria": "Casa",
+      "status": "Pendente"
+    },
+    {
+      "id": "c5b5",
+      "tarefa": "jogar",
+      "data": "2025-08-07",
+      "categoria": "Casa",
+      "status": "Pendente"
+    }
+  ],
+  "status": [
+    {
+      "id": "1",
+      "name": "Todos"
+    },
+    {
+      "id": "2",
+      "name": "Pendente"
+    },
+    {
+      "id": "3",
+      "name": "concluido"
+    }
+  ]
+}

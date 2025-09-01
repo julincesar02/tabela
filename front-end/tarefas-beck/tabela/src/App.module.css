@@ -1,0 +1,42 @@
+body {
+  background-color: #232832;
+}
+
+.btn_add {
+  background-color: #00aeb5;
+  margin-top: 10px;
+  margin-left: 50px;
+  color: white;
+  transition: transform 0.2s;
+  font-size: small;
+  width: 215px;
+}
+
+.btn_add:hover {
+  transform: scale(1.05);
+  background-color: #01979c;
+}
+
+button:active {
+  background-color: #00aeb5;
+  transform: scale(0.95);
+}
+
+.divTable {
+  margin-left: 100xp;
+  margin-top: -200px;
+}
+
+.divFormulario {
+  margin-top: -250px;
+}
+
+.select {
+  position: absolute;
+  left: 35%;
+  top: 12%;
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+}
