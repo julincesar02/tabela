@@ -1,16 +1,8 @@
 import styles from "./Form.module.css";
-import {  getTodos, todos, categorias, tarefaUsers } from "../service/api"
+import { getTodos, todos, categorias, tarefaUsers } from "../service/api";
 import { useState, useEffect } from "react";
 
-function Form({
-  // options,
-  // onChangeTarefa,
-  // onChangeCategoria,
-  // onChangeData,
-  // categoria,
-  // valueTarefa,
-  // valueData,
-}) {
+function Form() {
   const [categories, setCategories] = useState([]);
   const [dados, setDados] = useState([]);
   const [tarefa, setTarefa] = useState("");
@@ -23,6 +15,11 @@ function Form({
     getAllTarefas();
   }, []);
 
+  useEffect(() => {
+    console.log(categoria);
+    console.log(categories);
+  }, [categoria]);
+  
   async function carregarDados() {
     try {
       const pegarDados = await getTodos();
@@ -36,7 +33,6 @@ function Form({
   const getAllTarefas = async () => {
     try {
       let allTarefas = await todos();
-      setTodasTarefas(allTarefas);
       console.log("todasTarefas :>> ", allTarefas);
     } catch (error) {
       console.log("Deu ruim - getAllTarefas", error);
@@ -54,19 +50,18 @@ function Form({
   }
 
   async function enviar() {
+    const selecionados = categories.find((cat) => cat.nome === categoria);
     if (data === "" || tarefa == "" || categoria === "") {
       alert("Preencha todos os campos antes de continuar!");
     } else {
       await tarefaUsers({
         tarefa: tarefa,
         data: data,
-        categoria: {
-          id: categoria.id,
-          nome: "trabalho",
-        },
+        categoria: selecionados,
         status: "PENDENTE",
       });
     }
+    console.log("selecionados :>> ", selecionados);
     carregarDados();
     setCategoria("");
     setTarefa("");
@@ -77,10 +72,18 @@ function Form({
     <>
       <div className={styles.divFrom}>
         <label>Tarefa</label>
-        <input type="text" onChange={(e) => setTarefa(e.target.value)} value={tarefa} />
+        <input
+          type="text"
+          onChange={(e) => setTarefa(e.target.value)}
+          value={tarefa}
+        />
 
         <label>Categoria</label>
-        <select name="select" onChange={(e) => setCategoria(e.target.value)} value={categoria}>
+        <select
+          name="select"
+          onChange={(e) => setCategoria(e.target.value)}
+          value={categoria}
+        >
           <option value="" disabled hidden>
             Selecione uma opção
           </option>
@@ -95,13 +98,16 @@ function Form({
         </select>
 
         <label>Data de conclusão:</label>
-        <input type="date" onChange={(e) => setData(e.target.value)} value={data} />
+        <input
+          type="date"
+          onChange={(e) => setData(e.target.value)}
+          value={data}
+        />
 
-          <button
+        <button
           className={styles.btn_add}
           onClick={() => {
-            enviar()
-            console.log(categories)
+            enviar();
           }}
         >
           Adicionar

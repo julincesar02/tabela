@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import Form from "./componentes/Form";
-import { categorias, tarefaUsers, getTodos, todos } from "./service/api";
+import { getTodos, todos } from "./service/api";
 import styles from "./App.module.css";
 import Tabela from "./componentes/Tabela";
-// import { BiTask } from "react-icons/bi";
-// import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+
 
 function App() {
   const [statusString, setStatusString] = useState("");
