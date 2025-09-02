@@ -17,6 +17,7 @@ export async function getTodos() {
 
 export async function tarefaUsers(obj) {
   const dados = await api.post("/todos", obj);
+  console.log('dados :>> ', dados.data);
   return dados.data;
 }
 
