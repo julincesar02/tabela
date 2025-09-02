@@ -45,6 +45,7 @@ function App() {
     try {
       const pegarDados = await categorias();
       setCategories(pegarDados);
+      console.log('categories :>> ', categories);
     } catch (error) {
       console.log("Deu ruim - carregarCategorias", error);
     }
@@ -101,7 +102,8 @@ function App() {
         <button
           className={styles.btn_add}
           onClick={() => {
-            enviar();
+            enviar()
+            console.log(categories)
           }}
         >
           Adicionar

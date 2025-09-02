@@ -39,8 +39,8 @@ function Modal({ pessoa, abrirModal, setAbrirModal, carregarDados }) {
     await editarUser(pessoa.id, {
       tarefa: tarefaEdit,
       categoria: {
-        id: 1,
-        nome: categoriaEdit
+        id: index,
+        nome: "categoriaEdit"
       },
       data: dataEdit,
     });
