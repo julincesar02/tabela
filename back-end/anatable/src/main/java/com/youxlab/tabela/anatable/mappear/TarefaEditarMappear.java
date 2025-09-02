@@ -8,10 +8,8 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring" , uses = {CategoriaMapper.class})
 public interface TarefaEditarMappear {
 
-    @Mapping(source = "categoria" , target = "categoria")
     TarefaEditarDTO toDTO(Tarefa tarefa);
 
-    @Mapping(source = "categoria" , target = "categoria")
     Tarefa toEntity(TarefaEditarDTO dto);
 
 
