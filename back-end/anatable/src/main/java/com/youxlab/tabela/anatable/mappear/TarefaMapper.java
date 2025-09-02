@@ -10,12 +10,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {CategoriaMapper.class})
 public interface TarefaMapper {
 
-    @Mapping(source = "tarefa" , target = "nome")
-    @Mapping(source = "status" , target = "statusTarefa")
+    @Mapping(target = "nome" , source = "tarefa")
+    @Mapping(target = "categoria.id" , source = "categoria")
     Tarefa toEntity(TarefaDTO dto);
 
-    @Mapping(source = "nome" , target = "tarefa")
-    @Mapping(source = "statusTarefa" , target = "status")
+    @Mapping(target = "tarefa" , source = "nome")
+    @Mapping(target = "categoria" , source = "categoria.id")
     TarefaDTO toDTO(Tarefa tarefa);
 
     List<Tarefa> toEntityList(List<TarefaDTO> tarefaDTOList);

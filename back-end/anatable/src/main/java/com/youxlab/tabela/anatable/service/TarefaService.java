@@ -14,11 +14,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class TarefaService {
     private final TarefaRepository repository;
     private final TarefaMapper mapper;
     private final CategoriaMapper categoriaMapper;
+
+    public TarefaService(TarefaRepository repository, TarefaMapper mapper, CategoriaMapper categoriaMapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+        this.categoriaMapper = categoriaMapper;
+    }
 
     public TarefaDTO salvar(TarefaDTO dto) {
         Tarefa tarefa = mapper.toEntity(dto);
