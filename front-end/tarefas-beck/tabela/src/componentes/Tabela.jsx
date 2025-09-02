@@ -51,6 +51,7 @@ function Tabela({ dados, carregarTodosDados }) {
         setAbrirModal={setAbrirModal}
         pessoa={pessoaEdit}
         carregarDados={() => carregarTodosDados()}
+        
       />
 
       <div className={styles.divTabela}>
