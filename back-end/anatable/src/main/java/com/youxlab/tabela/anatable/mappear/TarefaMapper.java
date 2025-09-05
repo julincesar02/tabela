@@ -11,11 +11,9 @@ import java.util.List;
 public interface TarefaMapper {
 
     @Mapping(target = "nome" , source = "tarefa")
-    @Mapping(target = "categoria.id" , source = "categoria")
     Tarefa toEntity(TarefaDTO dto);
 
     @Mapping(target = "tarefa" , source = "nome")
-    @Mapping(target = "categoria" , source = "categoria.id")
     TarefaDTO toDTO(Tarefa tarefa);
 
     List<Tarefa> toEntityList(List<TarefaDTO> tarefaDTOList);

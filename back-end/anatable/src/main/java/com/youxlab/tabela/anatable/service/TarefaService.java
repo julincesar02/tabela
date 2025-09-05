@@ -3,6 +3,7 @@ package com.youxlab.tabela.anatable.service;
 import com.youxlab.tabela.anatable.dto.TarefaDTO;
 import com.youxlab.tabela.anatable.dto.TarefaEditarDTO;
 import com.youxlab.tabela.anatable.mappear.CategoriaMapper;
+import com.youxlab.tabela.anatable.mappear.TarefaEditarMappear;
 import com.youxlab.tabela.anatable.mappear.TarefaMapper;
 import com.youxlab.tabela.anatable.model.Categoria;
 import com.youxlab.tabela.anatable.model.Tarefa;
@@ -14,17 +15,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class TarefaService {
     private final TarefaRepository repository;
     private final TarefaMapper mapper;
     private final CategoriaMapper categoriaMapper;
-
-    public TarefaService(TarefaRepository repository, TarefaMapper mapper, CategoriaMapper categoriaMapper) {
-        this.repository = repository;
-        this.mapper = mapper;
-        this.categoriaMapper = categoriaMapper;
-    }
-
+    private final TarefaEditarMappear editarMappear;
     public TarefaDTO salvar(TarefaDTO dto) {
         Tarefa tarefa = mapper.toEntity(dto);
         Tarefa tarefaSalva = repository.save(tarefa);
@@ -54,8 +50,8 @@ public class TarefaService {
     public TarefaEditarDTO atuatizarTabela(Long id, TarefaEditarDTO dto) {
         Optional<Tarefa> tarefa = repository.findById(id);
         if (tarefa.isPresent()){
-            tarefa.get().setData(dto.getData());
             tarefa.get().setNome(dto.getTarefa());
+            tarefa.get().setData(dto.getData());
             Categoria categoria = categoriaMapper.toEntity(dto.getCategoria());
             tarefa.get().setCategoria(categoria);
             repository.save(tarefa.get());

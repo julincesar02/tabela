@@ -11,13 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/todos")
+@RequiredArgsConstructor
 public class TarefaController {
 
     private final TarefaService service;
-
-    public TarefaController(TarefaService service) {
-        this.service = service;
-    }
 
     @PostMapping
     public ResponseEntity<TarefaDTO> salvarTarefa(@RequestBody TarefaDTO dto){
